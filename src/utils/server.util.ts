@@ -8,11 +8,13 @@ import HttpStatusCode from './status-codes.util';
 import helmet from 'helmet';
 import { apiLimiter } from '../middlewares/rate-limiter.middleware';
 import { errorHandler } from '../middlewares/common-errors.middleware';
+import { httpLogger } from '../middlewares/logger.middleware';
 
 dotenv.config();
 const env = validateEnv();
 const createApp = (): Express => {
   const app = express();
+  app.use(httpLogger);
   app.use(express.json());
   app.use(
     cors({

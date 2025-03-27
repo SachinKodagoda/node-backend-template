@@ -1,13 +1,12 @@
 import { AppDataSource } from '../configs/database.config';
+import logger from './logger.util';
 
 export const connectToDB = async () => {
   try {
     await AppDataSource.initialize();
-    const now = new Date().toLocaleString();
-    console.log(`[${now}] ✅ Database Connection Success!`);
+    logger.info(`✅ Database Connection Success!`);
   } catch (err) {
-    const now = new Date().toLocaleString();
-    console.error(`[${now}] ❌ Database Connection Failed:`, err);
+    logger.error(`❌ Database Connection Failed: ${err}`);
     process.exit(1); // Exit process with failure
   }
 };

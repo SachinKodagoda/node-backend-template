@@ -16,3 +16,8 @@ export class CreateUserDto {
   @MinLength(6)
   password: string;
 }
+
+// how to use dto, services, resolvers,interceptors
+// type-graphql,typedi,typeorm,pino,swagger-jsdoc,swagger-ui-express,routing-controllers,class-validator
+// jsonwebtoken
+// middleware
