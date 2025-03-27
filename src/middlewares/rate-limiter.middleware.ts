@@ -1,7 +1,7 @@
-import rateLimit from "express-rate-limit";
-import { validateEnv } from "../configs/env.config";
-import { AppError } from "./common-errors.middleware";
-import HttpStatusCode from "../utils/status-codes.util";
+import rateLimit from 'express-rate-limit';
+import { validateEnv } from '../configs/env.config';
+import { AppError } from './common-errors.middleware';
+import HttpStatusCode from '../utils/status-codes.util';
 
 const env = validateEnv();
 
@@ -12,10 +12,7 @@ export const apiLimiter = rateLimit({
   legacyHeaders: false,
   handler: (req, res, next) => {
     next(
-      new AppError(
-        "Too many requests, please try again later.",
-        HttpStatusCode.TOO_MANY_REQUESTS
-      )
+      new AppError('Too many requests, please try again later.', HttpStatusCode.TOO_MANY_REQUESTS),
     );
   },
 });
@@ -28,9 +25,9 @@ export const authLimiter = rateLimit({
   handler: (req, res, next) => {
     next(
       new AppError(
-        "Too many login attempts, please try again later.",
-        HttpStatusCode.TOO_MANY_REQUESTS
-      )
+        'Too many login attempts, please try again later.',
+        HttpStatusCode.TOO_MANY_REQUESTS,
+      ),
     );
   },
 });

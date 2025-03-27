@@ -1,7 +1,7 @@
-import { Service } from "typedi";
-import { Repository } from "typeorm";
-import { User } from "../entities/user.entity";
-import { AppDataSource } from "../configs/database.config";
+import { Service } from 'typedi';
+import { Repository } from 'typeorm';
+import { User } from '../entities/user.entity';
+import { AppDataSource } from '../configs/database.config';
 
 @Service()
 export class UserRepository {

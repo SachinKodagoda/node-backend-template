@@ -5,8 +5,8 @@ import {
   CreateDateColumn,
   UpdateDateColumn,
   BeforeInsert,
-} from "typeorm";
-import bcrypt from "bcrypt";
+} from 'typeorm';
+import bcrypt from 'bcrypt';
 
 @Entity()
 export class User {

@@ -1,4 +1,4 @@
-import { AppDataSource } from "../configs/database.config";
+import { AppDataSource } from '../configs/database.config';
 
 export const connectToDB = async () => {
   try {

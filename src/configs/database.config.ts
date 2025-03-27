@@ -1,17 +1,17 @@
-import "reflect-metadata";
-import { DataSource } from "typeorm";
-import { validateEnv } from "./env.config";
-import dotenv from "dotenv";
-import path from "path";
+import 'reflect-metadata';
+import { DataSource } from 'typeorm';
+import { validateEnv } from './env.config';
+import dotenv from 'dotenv';
+import path from 'path';
 
 dotenv.config();
 const env = validateEnv();
 
-const isProduction = env.NODE_ENV === "production";
+const isProduction = env.NODE_ENV === 'production';
 
 export const AppDataSource = new DataSource({
   //   url: env.DB_URL,
-  type: "postgres",
+  type: 'postgres',
   host: env.DB_HOST,
   port: env.DB_PORT,
   username: env.DB_USERNAME,
@@ -20,7 +20,7 @@ export const AppDataSource = new DataSource({
   ssl: true,
   synchronize: !isProduction, // Only enable in development
   logging: false,
-  entities: [path.join(__dirname, "../entities/**/*.{js,ts}")],
-  migrations: [path.join(__dirname, "../migrations/**/*.{js,ts}")],
-  subscribers: [path.join(__dirname, "../subscribers/**/*.{js,ts}")],
+  entities: [path.join(__dirname, '../entities/**/*.{js,ts}')],
+  migrations: [path.join(__dirname, '../migrations/**/*.{js,ts}')],
+  subscribers: [path.join(__dirname, '../subscribers/**/*.{js,ts}')],
 });
